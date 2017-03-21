@@ -29,6 +29,37 @@ public class StatisticsTest {
         Player gretzky = stats.search("Gretzky");
         assertEquals("Gretzky",gretzky.getName());
     }
+    
+    @Test
+    public void searchReturnNull() {
+        Player laine = stats.search("Laine");
+        assertEquals(null,laine);
+    }
+    
+    @Test
+    public void teamReturnsAllPlayers() {
+        List<Player> edmonton = stats.team("EDM");
+        assertEquals(3,edmonton.size());
+    }
+    
+    @Test
+    public void topScorersReturnsRightAmountOfPlayers() {
+        List<Player> topThree = stats.topScorers(3);
+        assertEquals(3,topThree.size());
+    }
+    
+    @Test
+    public void FirstPlayerIsCorrect() {
+        List<Player> topThree = stats.topScorers(3);
+        assertEquals(topThree.get(0).getName(),"Gretzky");
+    }
+    
+    @Test
+    public void ThirdPlayerIsCorrect() {
+        List<Player> topThree = stats.topScorers(3);
+        assertEquals(topThree.get(2).getName(),"Yzerman");
+    }
+    
     @BeforeClass
     public static void setUpClass() {
     }
