@@ -1,4 +1,7 @@
 
+plugins {
+    id 'com.github.kt3k.coveralls' version '2.8.1'
+}
 apply plugin: 'java'
 apply plugin: "jacoco"
 apply plugin: 'application'
@@ -6,13 +9,24 @@ apply plugin: 'application'
 repositories {
     jcenter()
 }
-
+jar {
+    manifest {
+        attributes 'Main-Class': 'ohtuesimerki.Main'
+    }
+}
 dependencies {
     compile 'com.google.guava:guava:20.0'  
     testCompile 'junit:junit:4.12'
 }
 
 mainClassName = 'ohtuesimerkki.Main'
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
+}
 
 run {
     standardInput = System.in
