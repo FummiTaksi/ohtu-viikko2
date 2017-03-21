@@ -1,5 +1,6 @@
 package ohtuesimerkki;
 
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -13,6 +14,10 @@ public class Statistics {
     public Statistics(PlayerReader reader) {
         this.reader = reader;
         players = reader.getPlayers();       
+    }
+
+    public Statistics(Reader readerStub) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Player search(String name) {
