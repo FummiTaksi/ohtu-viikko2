@@ -1,6 +1,6 @@
 package ohtuesimerkki;
 
-import java.io.Reader;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -9,16 +9,13 @@ import java.util.List;
 public class Statistics {
 
     private List<Player> players;
-    private PlayerReader reader;
+    private Reader reader;
 
-    public Statistics(PlayerReader reader) {
+    public Statistics(Reader reader) {
         this.reader = reader;
         players = reader.getPlayers();       
     }
 
-    public Statistics(Reader readerStub) {
-       players = readerStub.getPlayers();
-    }
 
     public Player search(String name) {
         for (Player player : players) {
