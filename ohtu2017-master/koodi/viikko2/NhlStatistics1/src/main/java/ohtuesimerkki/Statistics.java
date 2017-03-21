@@ -17,7 +17,7 @@ public class Statistics {
     }
 
     public Statistics(Reader readerStub) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       players = readerStub.getPlayers();
     }
 
     public Player search(String name) {
