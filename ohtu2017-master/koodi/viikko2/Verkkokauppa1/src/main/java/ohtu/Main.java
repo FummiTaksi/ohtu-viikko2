@@ -16,7 +16,9 @@ public class Main {
 //        Kauppa kauppa = ctx.getBean(Kauppa.class);
 //        // kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
    
-        Kauppa kauppa = ctx.getBean(Kauppa.class);
+         
+
+        Kauppa kauppa = (Kauppa) ctx.getBean(Kauppa.class);
         kauppa.aloitaAsiointi();
         kauppa.lisaaKoriin(1);
         kauppa.lisaaKoriin(3);
@@ -33,7 +35,7 @@ public class Main {
         kauppa.tilimaksu("Arto Vihavainen", "3425-1652");
 
         //kirjanpito
-        Kirjanpito kirjanpito = ctx.getBean(Kirjanpito.class);
+        Kirjanpito kirjanpito = (Kirjanpito) ctx.getBean("kirjanpito");
         for (String tapahtuma : kirjanpito.getTapahtumat()) {
             System.out.println(tapahtuma);
         }
